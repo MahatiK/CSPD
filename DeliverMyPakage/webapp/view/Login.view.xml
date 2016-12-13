@@ -1,0 +1,82 @@
+<mvc:View controllerName="delvermypackage.controller.Login" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:sap.ui.core="sap.ui.core" xmlns="sap.m">
+	<App>
+		<pages>
+			<Page id="loginPage" title="Login">
+				<content>
+					<HBox id="__login" width="100%">
+						<items>
+							<VBox direction="Column" id="__vboxSpacer1" width="33%">
+								<items/>
+							</VBox>
+							<VBox direction="Column" id="__vboxCredentials" width="100%">
+								<items>
+									<Panel class="sapUiResponsiveMargin" width="50%">
+										<headerToolbar>
+											<Toolbar height="3rem">
+												<Title text="Login"/>
+												<ToolbarSpacer/>
+												<Button icon="" press="onRegister" text="Register"/>
+											</Toolbar>
+										</headerToolbar>
+										<content>
+											<HBox id="__credentials_spacer1" width="100%">
+												<items>
+													<VBox id="__credentials_spacer11" width="100%">
+														<items>
+															<Label design="Bold" id="emptyLable1" required="false" text="" textAlign="Left" width="100%"/>
+															<Label design="Bold" id="emptyLable2" required="false" text="" textAlign="Left" width="100%"/>
+														</items>
+													</VBox>
+												</items>
+											</HBox>
+											<HBox id="__credentials" width="100%">
+												<items>
+													<VBox id="__credentials_final" width="100%">
+														<items>
+															<Input id="username" placeholder="Username" width="100%" submit="onSignIn"/>
+															<Input id="password" placeholder="Password" submit="onSignIn" type="Password" width="100%"/>
+														</items>
+													</VBox>
+												</items>
+											</HBox>
+											<HBox id="__credentials_spacer2" width="100%">
+												<items>
+													<VBox id="__credentials_spacer21" width="100%">
+														<items>
+															<Label design="Bold" id="emptyLable3" required="false" text="" textAlign="Left" width="100%"/>
+															<Button id="signIn" text="Sign in" press="onSignIn" width="100%"/>
+															<Label design="Bold" id="emptyLable4" required="false" text="" textAlign="Left" width="100%"/>
+															<HBox id="__forgitPassword" width="100%">
+																<items>
+																	<VBox id="__forgotPasswordSpacer21" width="100%">
+																		<items/>
+																	</VBox>
+																	<VBox id="__forgotPasswordSpacer22" width="100%">
+																		<items/>
+																	</VBox>
+																	<VBox id="__forgotPasswordSpacer" width="50%">
+																		<items>
+																			<Link id="forgotPassword" press="onForgotPassword" text="Forgot Password"/>
+																		</items>
+																	</VBox>
+																</items>
+															</HBox>
+															<Label design="Bold" id="emptyLable5" required="false" text="" textAlign="Left" width="100%"/>
+															<Label design="Bold" id="emptyLable6" required="false" text="" textAlign="Left" width="100%"/>
+															<Label design="Bold" id="emptyLable7" required="false" text="" textAlign="Left" width="100%"/>
+														</items>
+													</VBox>
+												</items>
+											</HBox>
+										</content>
+									</Panel>
+								</items>
+							</VBox>
+						</items>
+					</HBox>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
