@@ -1,0 +1,166 @@
+<mvc:View controllerName="delvermypackage.controller.DashBoard" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
+	xmlns:semantic="sap.m.semantic" xmlns:footerbar="sap.ushell.ui.footerbar">
+	<semantic:FullscreenPage id="page" navButtonPress="onNavBack" showNavButton="true" title="{i18n>worklistViewTitle}">
+		<semantic:content>
+			<IconTabBar id="UserListTabBar" expandable="true" select="handleIconTabBarSelect" selectedKey="OFFBOARD">
+				<items>
+					<IconTabFilter id="idOrders" icon="sap-icon://order-status" text="{i18n>Orders}" key="ORDERS" tooltip="{i18n>Orders}" design="Vertical"
+						count="2">
+						<content>
+							<Table id="idOrdersTable" width="auto" items="{/Parcels}" growing="true" growingScrollToLoad="true">
+								<headerToolbar>
+									<Toolbar></Toolbar>
+								</headerToolbar>
+								<columns>
+									<Column id="idOrdersOrderNo">
+										<Text text="Order No"/>
+									</Column>
+									<Column id="idOrdersProductName">
+										<Text text="Contents"/>
+									</Column>
+									<Column id="idOrdersWeightColumn">
+										<Text text="Weight"/>
+									</Column>
+									<Column id="idOrdersToAddressColumn">
+										<Text text="To Address"/>
+									</Column>
+									<Column id="idOrdersToPhoneColumn">
+										<Text text="To Phone"/>
+									</Column>
+									<Column id="idOrdersPickedUpOnColumn">
+										<Text text="Picked Up On"/>
+									</Column>
+									<Column id="idOrdersDeliveredOnColumn">
+										<Text text="Delivered On"/>
+									</Column>
+									<Column id="idOrdersCostOfDeliveryColumn">
+										<Text text="Cost Of Delivery"/>
+									</Column>
+									<Column id="idOrdersStatusColumn">
+										<Text text="Status"/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem
+									type="Navigation"
+									press="onPress">
+										<cells>
+											<ObjectIdentifier title="{ParcelId}"/>
+											<Text text="{Content}"/>
+											<Text text="{Weight}"/>
+											<Text text="{Destination}"/>
+											<Text text="{ToPhone}"/>
+											<Text text="{SentDate}"/>
+											<Text text="{DeliveredDate}"/>
+											<Text text="{CostOfDelivery}"/>
+											<ObjectStatus icon="sap-icon://shipping-status"/>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter id="idDelieverys" icon="sap-icon://home" text="Deliveries" key="DELIEVERYS" tooltip="{i18n>Delieverys}"
+						design="Vertical" count="2">
+						<content>
+							<Table id="idDelieveryTable" width="auto" items="{/Journeys}" growing="true" growingScrollToLoad="true">
+								<headerToolbar>
+									<Toolbar></Toolbar>
+								</headerToolbar>
+								<columns>
+									<Column id="idDelieveryOrderNo">
+										<Text text="Order No"/>
+									</Column>
+									<Column id="idDelieveryProductName">
+										<Text text="Contents"/>
+									</Column>
+									<Column id="idDelieveryWeightColumn">
+										<Text text="Weight"/>
+									</Column>
+									<Column id="idDelieveryFromAddressColumn">
+										<Text text="From Address"/>
+									</Column>
+									<Column id="idDelieveryToAddressColumn">
+										<Text text="To Address"/>
+									</Column>
+									<Column id="idDelieveryToPhoneColumn">
+										<Text text="To Phone"/>
+									</Column>
+									<Column id="idDelieveryPickedUpOnColumn">
+										<Text text="Picked Up On"/>
+									</Column>
+									<Column id="idDelieveryDeliveredOnColumn">
+										<Text text="Delivered On"/>
+									</Column>
+									<Column id="idDelieveryCostOfDeliveryColumn">
+										<Text text="Cost Of Delivery"/>
+									</Column>
+									<Column id="idDelieveryStatusColumn">
+										<Text text="Status"/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem type="Navigation" press="onPress">
+										<cells>
+											<ObjectIdentifier title="{JourneyId}"/>
+											<Text text="{ProductName}"/>
+											<Text text="{Weight}"/>
+											<Text text="{Source}"/>
+											<Text text="{Destination}"/>
+											<Text text="{ToPhone}"/>
+											<Text text="{SDate}"/>
+											<Text text="{DeliveredOn}"/>
+											<Text text="{CostOfDelivery}"/>
+											<ObjectStatus icon="sap-icon://shipping-status"/>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</content>
+					</IconTabFilter>
+					<!--<IconTabFilter id="idAbout" icon="sap-icon://my-sales-order" text="{i18n>About}" key="ABOUT" tooltip="{i18n>About}" design="Vertical"-->
+					<!--	count="2">-->
+					<!--	<content>-->
+					<!--		<Table id="idAboutTable" width="auto" items="{UserJsonModel>/data}" growing="true" growingScrollToLoad="true">-->
+					<!--			<headerToolbar>-->
+					<!--				<Toolbar>-->
+					<!--					<Title id="tableHeader" text=""/>-->
+					<!--				</Toolbar>-->
+					<!--			</headerToolbar>-->
+					<!--			<columns>-->
+					<!--				<Column id="firstNameColumn">-->
+					<!--					<Text text="" id="firstNameColumnTitle"/>-->
+					<!--				</Column>-->
+					<!--				<Column id="secondNameColumn">-->
+					<!--					<Text text="" id="secondNameColumnTitle"/>-->
+					<!--				</Column>-->
+					<!--			</columns>-->
+					<!--			<items>-->
+					<!--				<ColumnListItem>-->
+					<!--					<cells>-->
+					<!--						<ObjectIdentifier title="{UserJsonModel>PropertyName}"/>-->
+					<!--						<Text text="{UserJsonModel>PropertyValue}"/>-->
+					<!--					</cells>-->
+					<!--				</ColumnListItem>-->
+					<!--			</items>-->
+					<!--		</Table>-->
+					<!--	</content>-->
+					<!--</IconTabFilter>-->
+				</items>
+			</IconTabBar>
+		</semantic:content>
+		<!--<semantic:sendEmailAction>-->
+		<!--                <semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>-->
+		<!--</semantic:sendEmailAction>-->
+		<!--<semantic:shareInJamAction>-->
+		<!--                <semantic:ShareInJamAction id="shareInJam" visible="{FLP>/isShareInJamActive}" press="onShareInJamPress"/>-->
+		<!--</semantic:shareInJamAction>-->
+		<!--<semantic:saveAsTileAction>-->
+		<!--                <footerbar:AddBookmarkButton id ="shareTile" title="{worklistView>/saveAsTileTitle}" />-->
+		<!--</semantic:saveAsTileAction>-->
+		<semantic:customFooterContent>
+			<Button text="Post My Ride" type="Emphasized" id="ride" press="onRide"/>
+			<Button text="Create Delivery Request" id="deliver" press="onDeliver"/>
+		</semantic:customFooterContent>
+	</semantic:FullscreenPage>
+</mvc:View>

@@ -1,0 +1,180 @@
+{
+	"_version": "1.4.0",
+	"sap.app": {
+		"id": "${project.artifactId}",
+		"type": "application",
+		"resources": "resources.json",
+		"i18n": "i18n/i18n.properties",
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"applicationVersion": {
+			"version": "${project.version}"
+		},
+		"ach": "",
+		"dataSources": {
+			"mainService": {
+				"uri": "https://cspdi322005trial.hanatrial.ondemand.com/cspd-0.0.1-SNAPSHOT/odata.svc",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			}
+		},
+		"sourceTemplate": {
+			"id": "sap.ui.ui5-template-plugin.1worklist",
+			"version": "1.38.3"
+		}
+	},
+	"sap.fiori": {
+		"registrationIds": [],
+		"archeType": "transactional"
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "sap-icon://task",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": ["sap_hcb", "sap_bluecrystal"]
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "delvermypackage.view.App",
+			"type": "XML",
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "${sap.ui5.dist.version}",
+			"libs": {
+				"sap.ui.core": {
+					"minVersion": "1.38.0"
+				},
+				"sap.m": {
+					"minVersion": "1.38.0"
+				}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "delvermypackage.i18n.i18n"
+				}
+			},
+			"": {
+				"dataSource": "mainService",
+				"preload": true
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "delvermypackage.view",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"bypassed": {
+					"target": ["notFound"]
+				},
+				"async": true
+			},
+			"routes": [{
+				"pattern": "worklist",
+				"name": "worklist",
+				"target": ["worklist"]
+			}, {
+				"name": "login",
+				"pattern": "",
+				"target": ["login"]
+			}, {
+				"pattern": "Categories/{objectId}",
+				"name": "object",
+				"target": ["object"]
+			}, {
+				"pattern": "PostMyRide",
+				"name": "PostMyRide",
+				"target": ["PostMyRide"]
+			}, {
+				"pattern": "CreateDeliveryRequest",
+				"name": "CreateDeliveryRequest",
+				"target": ["CreateDeliveryRequest"]
+			}, {
+				"pattern": "DashBoard",
+				"name": "DashBoard",
+				"target": ["DashBoard"]
+			}, {
+				"pattern": "Tracker/{Destination}",
+				"name": "Tracker",
+				"target": ["Tracker"]
+			}, {
+				"pattern": "Register",
+				"name": "Register",
+				"target": ["Register"]
+			}],
+			"targets": {
+				"worklist": {
+					"viewName": "Worklist",
+					"viewId": "worklist",
+					"viewLevel": 2
+				},
+				"login": {
+					"viewName": "Login",
+					"viewId": "login",
+					"viewLevel": 1
+				},
+				"object": {
+					"viewName": "Object",
+					"viewId": "object",
+					"viewLevel": 2
+				},
+				"objectNotFound": {
+					"viewName": "ObjectNotFound",
+					"viewId": "objectNotFound"
+				},
+				"notFound": {
+					"viewName": "NotFound",
+					"viewId": "notFound"
+				},
+				"PostMyRide": {
+					"viewName": "PostMyRide",
+					"viewId": "PostMyRide"
+				},
+				"CreateDeliveryRequest": {
+					"viewName": "CreateDeliveryRequest",
+					"viewId": "CreateDeliveryRequest"
+				},
+				"DashBoard": {
+					"viewName": "DashBoard",
+					"viewId": "DashBoard"
+				},
+				"Tracker": {
+					"viewName": "Tracker",
+					"viewId": "Tracker"
+				},
+				"Register": {
+					"viewName": "Register",
+					"viewId": "Register"
+				}
+			}
+		}
+	}
+}

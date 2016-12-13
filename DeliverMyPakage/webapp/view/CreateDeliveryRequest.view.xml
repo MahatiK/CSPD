@@ -1,0 +1,95 @@
+<mvc:View controllerName="delvermypackage.controller.CreateDeliveryRequest" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic"
+	xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:f="sap.ui.layout.form"
+	xmlns:sap.ui.core="sap.ui.core">
+	<App>
+		<pages>
+			<Page navButtonPress="onNavBack" showNavButton="true" title="Create New Delivery Request">
+				<!--<headerContent>-->
+				<!--	<Button id="navBack" icon="sap-icon://nav-back" press="onNavBack" text="" iconFirst="true"/>-->
+				<!--</headerContent>-->
+				<content>
+					<Panel class="sapUiResponsiveMargin" expandable="false" expanded="false" id="createRequest" width="auto">
+						<headerToolbar>
+							<Toolbar height="3rem">
+								<Title text=""/>
+								<ToolbarSpacer/>
+								<!--<Button icon="sap-icon://email" text="Request sent" type="Default"/>-->
+								<!--<Button icon="sap-icon://process" text="Processing" type="Default"/>-->
+								<!--<Button icon="sap-icon://approvals" text="Approved" type="Default"/>-->
+								<!--<Button iconFirst="false" id="pastRequests" text="Past requests" press="onNavBack" type="Default"/>-->
+							</Toolbar>
+						</headerToolbar>
+						<content>
+							<f:SimpleForm id="packageDetails" minWidth="1024" maxContainerCols="2" editable="true" layout="ResponsiveGridLayout" title="Package Details"
+								labelSpanL="4" labelSpanM="4" emptySpanL="0" emptySpanM="0" columnsL="2" columnsM="2" class="editableForm">
+								<f:content>
+									<core:Title text=""/>
+									<Label text="Weight"/>
+									<Input id="weight" value=""/>
+									<Label text="Contents"/>
+									<Input id="contents" value=""/>
+									<core:Title text=""/>
+									<Label text="Size"/>
+									<Input id="size" value=""/>
+									<Label text="Handling Instructions"/>
+									<Input value=""/>
+								</f:content>
+							</f:SimpleForm>
+							<f:SimpleForm id="pickUpDetails" minWidth="1024" maxContainerCols="2" editable="true" layout="ResponsiveGridLayout" title="Pick-Up Details"
+								labelSpanL="4" labelSpanM="4" emptySpanL="0" emptySpanM="0" columnsL="2" columnsM="2" class="editableForm">
+								<f:content>
+									<core:Title text=""/>
+									<Label text="Street"/>
+									<Input value=""/>
+									<Label text="Area"/>
+									<Input value=""></Input>
+									<Label text="City"/>
+									<Input id="fCity" value=""/>
+									<Label text="State"/>
+									<Select width="100%">
+										<items>
+											<core:Item text="Bangalore"/>
+											<core:Item text="Andhre Pradesh"/>
+											<core:Item text="Kerala"/>
+										</items>
+									</Select>
+									<core:Title text=""/>
+									<Label text="Date"/>
+									<Input id="fDate" value=""/>
+									<Label text="Time"/>
+									<Input value=""/>
+								</f:content>
+							</f:SimpleForm>
+							<f:SimpleForm id="dropDetails" minWidth="1024" maxContainerCols="2" editable="true" layout="ResponsiveGridLayout" title="Drop Details"
+								labelSpanL="4" labelSpanM="4" emptySpanL="0" emptySpanM="0" columnsL="2" columnsM="2" class="editableForm">
+								<f:content>
+									<core:Title text=""/>
+									<Label text="Street"/>
+									<Input value=""/>
+									<Label text="Area"/>
+									<Input value=""></Input>
+									<Label text="City"/>
+									<Input id="tCity" value=""/>
+									<Label text="State"/>
+									<Select width="100%">
+										<items>
+											<core:Item text="Bangalore"/>
+											<core:Item text="Andhre Pradesh"/>
+											<core:Item text="Kerala"/>
+										</items>
+									</Select>
+									<core:Title text=""/>
+									<Label text="Date"/>
+									<Input id="tDate" value=""/>
+									<Label text="Time"/>
+									<Input value=""/>
+								</f:content>
+							</f:SimpleForm>
+							<Button text="Create Deliver Request" press="onCreate" width="100%"/>
+						</content>
+					</Panel>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

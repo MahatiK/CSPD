@@ -1,0 +1,46 @@
+<mvc:View controllerName="delvermypackage.controller.Register" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic"
+	xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:f="sap.ui.layout.form"
+	xmlns:sap.ui.core="sap.ui.core">
+	<App>
+		<pages>
+			<Page navButtonPress="onNavBack" showNavButton="true" title="Register">
+				<!--<headerContent>-->
+				<!--	<Button id="navBack" icon="sap-icon://nav-back" press="onNavBack" text="" iconFirst="true"/>-->
+				<!--</headerContent>-->
+				<content>
+					<Panel class="sapUiResponsiveMargin" expandable="false" expanded="false" id="createRequest" width="auto">
+						<headerToolbar>
+							<Toolbar height="3rem">
+								<Title text=""/>
+								<ToolbarSpacer/>
+							</Toolbar>
+						</headerToolbar>
+						<content>
+							<f:SimpleForm id="dropDetails" minWidth="1024" maxContainerCols="2" editable="true" layout="ResponsiveGridLayout" title="Personal Details"
+								labelSpanL="4" labelSpanM="4" emptySpanL="0" emptySpanM="0" columnsL="2" columnsM="2" class="editableForm">
+								<f:content>
+									<core:Title text=""/>
+									<Label text="Name"/>
+									<Input id="name" value=""/>
+									<Label text="Email"/>
+									<Input id="email" value=""></Input>
+									<Label text="Phone No"/>
+									<Input id="phone" value=""/>
+									<core:Title text=""/>
+									<Label text="Address"/>
+									<Input id="address" value=""/>
+									<Label text="Aadhar"/>
+									<Input id="adhar" value=""/>
+									<Label text=""/>
+									<CheckBox id="carrier" text="I want to be a carrier as well"/>
+								</f:content>
+							</f:SimpleForm>
+
+							<Button text="Register" press="onRegister" width="100%"/>
+						</content>
+					</Panel>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

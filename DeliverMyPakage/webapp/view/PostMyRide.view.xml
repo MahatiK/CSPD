@@ -1,0 +1,95 @@
+<mvc:View controllerName="delvermypackage.controller.PostMyRide" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic"
+	xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:f="sap.ui.layout.form"
+	xmlns:sap.ui.core="sap.ui.core">
+	<App>
+		<pages>
+			<Page navButtonPress="onNavBack" showNavButton="true" title="Post My Ride">
+				<!--<headerContent>-->
+				<!--	<Button id="navBack" icon="sap-icon://nav-back" press="onNavBack" text="" iconFirst="true"/>-->
+				<!--</headerContent>-->
+				<content>
+					<Panel class="sapUiResponsiveMargin" expandable="false" expanded="false" id="createRequest" width="auto">
+						<headerToolbar>
+							<Toolbar height="3rem">
+								<Title text=""/>
+								<ToolbarSpacer/>
+								<!--<Button icon="sap-icon://email" text="Request sent" type="Default"/>-->
+								<!--<Button icon="sap-icon://process" text="Processing" type="Default"/>-->
+								<!--<Button icon="sap-icon://approvals" text="Approved" type="Default"/>-->
+								<!--<Button iconFirst="false" id="pastRequests" text="Past requests" press="onNavBack" type="Default"/>-->
+							</Toolbar>
+						</headerToolbar>
+						<content>
+							<f:SimpleForm id="pickUpDetails" minWidth="1024" maxContainerCols="2" editable="true" layout="ResponsiveGridLayout" title="Starting From"
+								labelSpanL="4" labelSpanM="4" emptySpanL="0" emptySpanM="0" columnsL="2" columnsM="2" class="editableForm">
+								<f:content>
+									<core:Title text=""/>
+									<Label text="Street"/>
+									<Input id="pStreet" value=""/>
+									<Label text="Area"/>
+									<Input id="pArea" value=""></Input>
+									<Label text="City"/>
+									<Input id="pCity" value=""/>
+									<Label text="State"/>
+									<Select id="pState" width="100%">
+										<items>
+											<core:Item text="Bangalore"/>
+											<core:Item text="Andhra Pradesh"/>
+											<core:Item text="Kerala"/>
+										</items>
+									</Select>
+									<core:Title text=""/>
+									<Label text="Date"/>
+									<Input id="pDate" value=""/>
+									<Label text="Time"/>
+									<Input id="pTime" value=""/>
+								</f:content>
+							</f:SimpleForm>
+							<f:SimpleForm id="dropDetails" minWidth="1024" maxContainerCols="2" editable="true" layout="ResponsiveGridLayout" title="Going To"
+								labelSpanL="4" labelSpanM="4" emptySpanL="0" emptySpanM="0" columnsL="2" columnsM="2" class="editableForm">
+								<f:content>
+									<core:Title text=""/>
+									<Label text="Street"/>
+									<Input id="dStreet" value=""/>
+									<Label text="Area"/>
+									<Input id="dArea" value=""></Input>
+									<Label text="City"/>
+									<Input id="dCity" value=""/>
+									<Label text="State"/>
+									<Select id="dState" width="100%">
+										<items>
+											<core:Item text="Bangalore"/>
+											<core:Item text="Andhre Pradesh"/>
+											<core:Item text="Kerala"/>
+										</items>
+									</Select>
+									<core:Title text=""/>
+									<Label text="Date"/>
+									<Input id="dDate" value=""/>
+									<Label text="Time"/>
+									<Input id="dTime" value=""/>
+								</f:content>
+							</f:SimpleForm>
+							<f:SimpleForm id="packageDetails" minWidth="1024" maxContainerCols="2" editable="true" layout="ResponsiveGridLayout" title="Package Preferences"
+								labelSpanL="4" labelSpanM="4" emptySpanL="0" emptySpanM="0" columnsL="2" columnsM="2" class="editableForm">
+								<f:content>
+									<core:Title text=""/>
+									<Label text="Weight"/>
+									<Input id="weight" value=""/>
+									<Label text="Contents"/>
+									<Input id="contents" value=""/>
+									<core:Title text=""/>
+									<Label text="Size"/>
+									<Input id="size" value=""/>
+									<!--<Label text="Handling Instructions"/>-->
+									<!--<Input value=""/>-->
+								</f:content>
+							</f:SimpleForm>
+							<Button text="Post Ride" press="onPostRide" width="100%"/>
+						</content>
+					</Panel>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

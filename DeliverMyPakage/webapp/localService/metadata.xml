@@ -1,0 +1,279 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" Version="1.0">
+<edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="1.0">
+<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="Model">
+<EntityType Name="Parcel">
+<Key>
+<PropertyRef Name="ParcelId"/>
+</Key>
+<Property Name="Client" Type="Edm.String" Nullable="true" MaxLength="255"/>
+
+<Property xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="Content" Type="Edm.String" Nullable="false" sap:filterable="true" sap:updatable="true" sap:sortable="true" sap:creatable="true"/>
+<Property xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="ToPhone" Type="Edm.String" Nullable="false" sap:filterable="true" sap:updatable="true" sap:sortable="true" sap:creatable="true"/>
+<Property xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="CostOfDelivery" Type="Edm.String" Nullable="false" sap:filterable="true" sap:updatable="true" sap:sortable="true" sap:creatable="true"/>
+
+<Property xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="Delivered" Type="Edm.Boolean" Nullable="false" sap:filterable="true" sap:updatable="true" sap:sortable="true" sap:creatable="true"/>
+<Property xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="DeliveredDate" Type="Edm.String" Nullable="false" MaxLength="255" sap:filterable="true" sap:updatable="true" sap:sortable="true" sap:creatable="true"/>
+<Property xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="Destination" Type="Edm.String" Nullable="false" MaxLength="255" sap:filterable="true" sap:updatable="true" sap:sortable="true" sap:creatable="true"/>
+<Property xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="Dimensions" Type="Edm.String" Nullable="false" MaxLength="255" sap:filterable="true" sap:updatable="true" sap:sortable="true" sap:creatable="true"/>
+<Property xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="LatLong" Type="Edm.String" Nullable="false" MaxLength="255" sap:filterable="true" sap:updatable="true" sap:sortable="true" sap:creatable="true"/>
+<Property Name="ParcelId" Type="Edm.String" Nullable="false" MaxLength="255"/>
+<Property xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="SentDate" Type="Edm.String" Nullable="false" MaxLength="255" sap:filterable="true" sap:updatable="true" sap:sortable="true" sap:creatable="true"/>
+<Property xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="Source" Type="Edm.String" Nullable="false" MaxLength="255" sap:filterable="true" sap:updatable="true" sap:sortable="true" sap:creatable="true"/>
+<Property xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="Weight" Type="Edm.Single" Nullable="false" sap:filterable="true" sap:updatable="true" sap:sortable="true" sap:creatable="true"/>
+<NavigationProperty Name="ClientDetails" Relationship="Model.Parcel_Client_Many_One0" FromRole="Parcel" ToRole="Client"/>
+<NavigationProperty Name="ShipperDetails" Relationship="Model.Parcel_Shipper_Many_One0" FromRole="Parcel" ToRole="Shipper"/>
+</EntityType>
+<EntityType Name="Party">
+<Key>
+<PropertyRef Name="Pid"/>
+</Key>
+<Property xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="Address" Type="Edm.String" Nullable="true" MaxLength="255" sap:label="Company Address" sap:filterable="true" sap:updatable="true" sap:sortable="true" sap:creatable="true"/>
+<Property xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="Country" Type="Edm.String" Nullable="true" MaxLength="255" sap:label="Country" sap:filterable="true" sap:updatable="true" sap:sortable="true" sap:creatable="true"/>
+<Property xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="Email" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Registered Email" sap:filterable="true" sap:updatable="true" sap:sortable="true" sap:creatable="true"/>
+<Property xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="FirstName" Type="Edm.String" Nullable="true" MaxLength="255" sap:label="First Name" sap:filterable="true" sap:updatable="true" sap:sortable="true" sap:creatable="true"/>
+<Property xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="GovId" Type="Edm.String" Nullable="true" MaxLength="255" sap:filterable="true" sap:updatable="true" sap:sortable="true" sap:creatable="true"/>
+<Property xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="LastName" Type="Edm.String" Nullable="true" MaxLength="255" sap:label="Last Name" sap:filterable="true" sap:updatable="true" sap:sortable="true" sap:creatable="true"/>
+<Property xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="Phone" Type="Edm.String" Nullable="true" MaxLength="255" sap:label="Company Phone" sap:filterable="true" sap:updatable="true" sap:sortable="true" sap:creatable="true"/>
+<Property xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="Pid" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Party ID" sap:filterable="true" sap:updatable="true" sap:sortable="true" sap:creatable="true"/>
+<Property xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="Role" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Role" sap:filterable="true" sap:updatable="true" sap:sortable="true" sap:creatable="true"/>
+</EntityType>
+<EntityType Name="Journey">
+<Key>
+<PropertyRef Name="JourneyId"/>
+</Key>
+
+<Property xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="ProductName" Type="Edm.String" Nullable="false" MaxLength="255" sap:filterable="true" sap:updatable="true" sap:sortable="true" sap:creatable="true"/>
+<Property xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="ToPhone" Type="Edm.String" Nullable="false" MaxLength="255" sap:filterable="true" sap:updatable="true" sap:sortable="true" sap:creatable="true"/>
+<Property xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="DeliveredOn" Type="Edm.String" Nullable="false" MaxLength="255" sap:filterable="true" sap:updatable="true" sap:sortable="true" sap:creatable="true"/>
+<Property xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="CostOfDelivery" Type="Edm.String" Nullable="false" MaxLength="255" sap:filterable="true" sap:updatable="true" sap:sortable="true" sap:creatable="true"/>
+<Property xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="Destination" Type="Edm.String" Nullable="false" MaxLength="255" sap:filterable="true" sap:updatable="true" sap:sortable="true" sap:creatable="true"/>
+<Property xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="Dimensions" Type="Edm.Single" Nullable="false" sap:filterable="true" sap:updatable="true" sap:sortable="true" sap:creatable="true"/>
+<Property Name="JourneyId" Type="Edm.String" Nullable="false" MaxLength="255"/>
+<Property xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="SDate" Type="Edm.Single" Nullable="false" sap:filterable="true" sap:updatable="true" sap:sortable="true" sap:creatable="true"/>
+<Property Name="Shipper" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="Source" Type="Edm.String" Nullable="false" MaxLength="255" sap:filterable="true" sap:updatable="true" sap:sortable="true" sap:creatable="true"/>
+<Property xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="Status" Type="Edm.Boolean" Nullable="false" sap:filterable="true" sap:updatable="true" sap:sortable="true" sap:creatable="true"/>
+<Property xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="Weight" Type="Edm.Single" Nullable="false" sap:filterable="true" sap:updatable="true" sap:sortable="true" sap:creatable="true"/>
+<NavigationProperty Name="ParcelDetails" Relationship="Model.Journey_Parcel_One_Many0" FromRole="Journey" ToRole="Parcel"/>
+<NavigationProperty Name="ShipperDetails" Relationship="Model.Journey_Shipper_Many_One0" FromRole="Journey" ToRole="Shipper"/>
+</EntityType>
+<EntityType Name="Shipper">
+<Key>
+<PropertyRef Name="Pid"/>
+</Key>
+<Property Name="Address" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="Country" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="Email" Type="Edm.String" Nullable="false" MaxLength="255"/>
+<Property Name="FirstName" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="GovId" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="LastName" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="Phone" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="Pid" Type="Edm.String" Nullable="false" MaxLength="255"/>
+<Property xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="Rating" Type="Edm.Int32" Nullable="true" sap:filterable="true" sap:updatable="true" sap:sortable="true" sap:creatable="true"/>
+<Property Name="Role" Type="Edm.String" Nullable="false" MaxLength="255"/>
+<NavigationProperty Name="JourneyDetails" Relationship="Model.Shipper_Journey_One_Many1" FromRole="Shipper" ToRole="Journey"/>
+<NavigationProperty Name="ParcelDetails" Relationship="Model.Shipper_Parcel_One_Many1" FromRole="Shipper" ToRole="Parcel"/>
+</EntityType>
+<EntityType Name="Client">
+<Key>
+<PropertyRef Name="Pid"/>
+</Key>
+<Property Name="Address" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="Country" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="Email" Type="Edm.String" Nullable="false" MaxLength="255"/>
+<Property Name="FirstName" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="GovId" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="LastName" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="Phone" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="Pid" Type="Edm.String" Nullable="false" MaxLength="255"/>
+<Property xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="Rating" Type="Edm.Int32" Nullable="true" sap:filterable="true" sap:updatable="true" sap:sortable="true" sap:creatable="true"/>
+<Property Name="Role" Type="Edm.String" Nullable="false" MaxLength="255"/>
+<NavigationProperty Name="ParcelDetails" Relationship="Model.Client_Parcel_One_Many1" FromRole="Client" ToRole="Parcel"/>
+</EntityType>
+<Association Name="Parcel_Client_Many_One0">
+<End Type="Model.Parcel" Multiplicity="*" Role="Parcel"/>
+<End Type="Model.Client" Multiplicity="1" Role="Client"/>
+<ReferentialConstraint>
+<Principal Role="Client">
+<PropertyRef Name="Pid"/>
+</Principal>
+<Dependent Role="Parcel">
+<PropertyRef Name="Client"/>
+</Dependent>
+</ReferentialConstraint>
+</Association>
+<Association Name="Journey_Shipper_Many_One0">
+<End Type="Model.Journey" Multiplicity="*" Role="Journey"/>
+<End Type="Model.Shipper" Multiplicity="1" Role="Shipper"/>
+<ReferentialConstraint>
+<Principal Role="Shipper">
+<PropertyRef Name="Pid"/>
+</Principal>
+<Dependent Role="Journey">
+<PropertyRef Name="Shipper"/>
+</Dependent>
+</ReferentialConstraint>
+</Association>
+<Association Name="Parcel_Shipper_Many_One0">
+<End Type="Model.Parcel" Multiplicity="*" Role="Parcel"/>
+<End Type="Model.Shipper" Multiplicity="1" Role="Shipper"/>
+</Association>
+<Association Name="Shipper_Journey_One_Many1">
+<End Type="Model.Shipper" Multiplicity="1" Role="Shipper"/>
+<End Type="Model.Journey" Multiplicity="*" Role="Journey"/>
+</Association>
+<Association Name="Journey_Parcel_One_Many0">
+<End Type="Model.Journey" Multiplicity="1" Role="Journey"/>
+<End Type="Model.Parcel" Multiplicity="*" Role="Parcel"/>
+</Association>
+<Association Name="Shipper_Parcel_One_Many1">
+<End Type="Model.Shipper" Multiplicity="1" Role="Shipper"/>
+<End Type="Model.Parcel" Multiplicity="*" Role="Parcel"/>
+</Association>
+<Association Name="Client_Parcel_One_Many1">
+<End Type="Model.Client" Multiplicity="1" Role="Client"/>
+<End Type="Model.Parcel" Multiplicity="*" Role="Parcel"/>
+</Association>
+<EntityContainer Name="ModelContainer" m:IsDefaultEntityContainer="true">
+<EntitySet Name="Parcels" EntityType="Model.Parcel"/>
+<EntitySet Name="Partys" EntityType="Model.Party"/>
+<EntitySet Name="Journeys" EntityType="Model.Journey"/>
+<EntitySet Name="Shippers" EntityType="Model.Shipper"/>
+<EntitySet Name="Clients" EntityType="Model.Client"/>
+<AssociationSet Name="Parcel_Client_Many_One0Set" Association="Model.Parcel_Client_Many_One0">
+<End EntitySet="Parcels" Role="Parcel"/>
+<End EntitySet="Clients" Role="Client"/>
+</AssociationSet>
+<AssociationSet Name="Journey_Shipper_Many_One0Set" Association="Model.Journey_Shipper_Many_One0">
+<End EntitySet="Journeys" Role="Journey"/>
+<End EntitySet="Shippers" Role="Shipper"/>
+</AssociationSet>
+<AssociationSet Name="Parcel_Shipper_Many_One0Set" Association="Model.Parcel_Shipper_Many_One0">
+<End EntitySet="Parcels" Role="Parcel"/>
+<End EntitySet="Shippers" Role="Shipper"/>
+</AssociationSet>
+<AssociationSet Name="Shipper_Journey_One_Many1Set" Association="Model.Shipper_Journey_One_Many1">
+<End EntitySet="Shippers" Role="Shipper"/>
+<End EntitySet="Journeys" Role="Journey"/>
+</AssociationSet>
+<AssociationSet Name="Journey_Parcel_One_Many0Set" Association="Model.Journey_Parcel_One_Many0">
+<End EntitySet="Journeys" Role="Journey"/>
+<End EntitySet="Parcels" Role="Parcel"/>
+</AssociationSet>
+<AssociationSet Name="Shipper_Parcel_One_Many1Set" Association="Model.Shipper_Parcel_One_Many1">
+<End EntitySet="Shippers" Role="Shipper"/>
+<End EntitySet="Parcels" Role="Parcel"/>
+</AssociationSet>
+<AssociationSet Name="Client_Parcel_One_Many1Set" Association="Model.Client_Parcel_One_Many1">
+<End EntitySet="Clients" Role="Client"/>
+<End EntitySet="Parcels" Role="Parcel"/>
+</AssociationSet>
+</EntityContainer>
+<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="Model.Parcel">
+<Annotation Term="com.sap.vocabularies.UI.v1.LineItem">
+<Collection>
+<Record Type="com.sap.vocabularies.UI.v1.DataField">
+<PropertyValue Path="Source" Property="Value"/>
+</Record>
+<Record Type="com.sap.vocabularies.UI.v1.DataField">
+<PropertyValue Path="Destination" Property="Value"/>
+</Record>
+<Record Type="com.sap.vocabularies.UI.v1.DataField">
+<PropertyValue Path="Weight" Property="Value"/>
+</Record>
+<Record Type="com.sap.vocabularies.UI.v1.DataField">
+<PropertyValue Path="Dimensions" Property="Value"/>
+</Record>
+<Record Type="com.sap.vocabularies.UI.v1.DataField">
+<PropertyValue Path="SentDate" Property="Value"/>
+</Record>
+<Record Type="com.sap.vocabularies.UI.v1.DataField">
+<PropertyValue Path="DeliveredDate" Property="Value"/>
+</Record>
+<Record Type="com.sap.vocabularies.UI.v1.DataField">
+<PropertyValue Path="Delivered" Property="Value"/>
+</Record>
+<Record Type="com.sap.vocabularies.UI.v1.DataField">
+<PropertyValue Path="LatLong" Property="Value"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="Model.Party">
+<Annotation Term="com.sap.vocabularies.UI.v1.LineItem">
+<Collection>
+<Record Type="com.sap.vocabularies.UI.v1.DataField">
+<PropertyValue Path="Pid" Property="Value"/>
+</Record>
+<Record Type="com.sap.vocabularies.UI.v1.DataField">
+<PropertyValue Path="FirstName" Property="Value"/>
+</Record>
+<Record Type="com.sap.vocabularies.UI.v1.DataField">
+<PropertyValue Path="LastName" Property="Value"/>
+</Record>
+<Record Type="com.sap.vocabularies.UI.v1.DataField">
+<PropertyValue Path="Email" Property="Value"/>
+</Record>
+<Record Type="com.sap.vocabularies.UI.v1.DataField">
+<PropertyValue Path="Phone" Property="Value"/>
+</Record>
+<Record Type="com.sap.vocabularies.UI.v1.DataField">
+<PropertyValue Path="Address" Property="Value"/>
+</Record>
+<Record Type="com.sap.vocabularies.UI.v1.DataField">
+<PropertyValue Path="Country" Property="Value"/>
+</Record>
+<Record Type="com.sap.vocabularies.UI.v1.DataField">
+<PropertyValue Path="GovId" Property="Value"/>
+</Record>
+<Record Type="com.sap.vocabularies.UI.v1.DataField">
+<PropertyValue Path="Role" Property="Value"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="Model.Journey">
+<Annotation Term="com.sap.vocabularies.UI.v1.LineItem">
+<Collection>
+<Record Type="com.sap.vocabularies.UI.v1.DataField">
+<PropertyValue Path="Source" Property="Value"/>
+</Record>
+<Record Type="com.sap.vocabularies.UI.v1.DataField">
+<PropertyValue Path="Destination" Property="Value"/>
+</Record>
+<Record Type="com.sap.vocabularies.UI.v1.DataField">
+<PropertyValue Path="SDate" Property="Value"/>
+</Record>
+<Record Type="com.sap.vocabularies.UI.v1.DataField">
+<PropertyValue Path="Weight" Property="Value"/>
+</Record>
+<Record Type="com.sap.vocabularies.UI.v1.DataField">
+<PropertyValue Path="Dimensions" Property="Value"/>
+</Record>
+<Record Type="com.sap.vocabularies.UI.v1.DataField">
+<PropertyValue Path="Status" Property="Value"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="Model.Shipper">
+<Annotation Term="com.sap.vocabularies.UI.v1.LineItem">
+<Collection>
+<Record Type="com.sap.vocabularies.UI.v1.DataField">
+<PropertyValue Path="Rating" Property="Value"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="Model.Client">
+<Annotation Term="com.sap.vocabularies.UI.v1.LineItem">
+<Collection>
+<Record Type="com.sap.vocabularies.UI.v1.DataField">
+<PropertyValue Path="Rating" Property="Value"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+</Schema>
+</edmx:DataServices>
+</edmx:Edmx>
